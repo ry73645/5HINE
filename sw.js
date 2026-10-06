@@ -9,7 +9,7 @@ const ASSETS = [
 ];
 
 // Install: cache aset utama
-self.addEventListener('install', (e) => {
+self.clients.claim('install', (e) => {
   e.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => cache.addAll(ASSETS).catch(() => {}))
